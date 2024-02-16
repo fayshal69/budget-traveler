@@ -8,10 +8,129 @@
 </head>
 <body>
     
-    <div class="relative py-10">
-        <img src="images/cart.png" class="w-10 inline">
-        <span class="absolute ms-1 top-6 text-2xl text-red-500 font-medium">0</span>
-    </div>
+    <!-- header section start -->
+    <header>
+        <!-- nav section -->
+        <nav class="bg-slate-200 py-2">
+            <div class="container mx-auto flex justify-between">
+                <div>
+                    <a href="#"  class="flex items-center gap-2">
+                        <img src="images/logo.png" alt="logo" class="w-20 inline">
+                        <p class="text-xl lg:text-3xl font-bold">Hello <span class="text-red-600">World</span></p>
+                    </a>
+                </div>
+                <!-- menu item container -->
+                <div class="w-1/2 flex items-center justify-between">
+                    <div class="relative"><a href="#">
+                        <img src="images/cart.png" class="w-10">
+                        <span class="absolute -top-3 -right-3 text-xl font-semibold text-red-600"
+                        id="navCartItemCount">0</span>
+                    </a></div>
+                    <div class="font-medium text-xl"><a href="#">Home</a></div>
+                    <div class="font-medium text-xl"><a href="#">Contact Us</a></div>
+                    <div class="p-2 border border-black rounded-full"><a href="#">
+                        <img src="images/man.png" class="w-10 h-10">
+                    </a></div>
+                </div>
+            </div>
+        </nav>
+        <!-- hero section  -->
+        <div class="container mx-auto py-10 flex items-center justify-between">
+            <!-- text container -->
+            <div class="w-1/2 space-y-10">
+                <h1 class="text-5xl font-bold">Lets Travel</h1>
+                <p class="text-xl opacity-80">Embark on adventures, traverse landscapes, immerse in cultures, taste diverse cuisines, encounter wonders, and create memories that last a lifetime.</p>
+                <h3 class="text-3xl font-semibold">Total Budget: <span id="budget-amount">900</span> $</h3>
+            </div>
+            <!-- img container -->
+            <div>
+                <img src="images/banner.png" class="w-full">
+            </div>
+        </div>
+    </header>
+    <!-- header section end -->
+
+    <!-- main section start -->
+    <main class="container mx-auto mb-24">
+        <div class="grid grid-cols-3 gap-8">
+            <!-- card container -->
+            <div class="col-span-2 grid grid-cols-2 gap-8">
+                <!-- card 1 -->
+                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                    <div class="w-1/2">
+                        <img src="images/shajek.jpg" class="rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Shajek</h3>
+                        <p class="text-base font-semibold opacity-80 mb-8">Cost: <span>300</span> $</p>
+                        <button class="py-2 px-4 bg-slate-400 rounded-lg text-base font-semibold text-white hover:bg-green-600">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- card 2 -->
+                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                    <div class="w-1/2">
+                        <img src="images/Dhaka.jpg" class="rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Dhaka</h3>
+                        <p class="text-base font-semibold opacity-80 mb-8">Cost: <span>300</span> $</p>
+                        <button class="py-2 px-4 bg-slate-400 rounded-lg text-base font-semibold text-white hover:bg-green-600">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- card 3 -->
+                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                    <div class="w-1/2">
+                        <img src="images/shundar-ban.jpg" class="rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Khulna</h3>
+                        <p class="text-base font-semibold opacity-80 mb-8">Cost: <span>500</span> $</p>
+                        <button class="py-2 px-4 bg-slate-400 rounded-lg text-base font-semibold text-white hover:bg-green-600">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                    <div class="w-1/2">
+                        <img src="images/coxBazar.jpg" class="rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Cox's Bazar</h3>
+                        <p class="text-base font-semibold opacity-80 mb-8">Cost: <span>500</span> $</p>
+                        <button class="py-2 px-4 bg-slate-400 rounded-lg text-base font-semibold text-white hover:bg-green-600">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cart and cost container -->
+            <div class="text-center p-6 shadow-lg max-h-max">
+                <h2 class="text-3xl font-semibold">Cart</h2>
+                <div class="w-full h-[1px] bg-black bg-opacity-40 my-3"></div>
+                <div class="">
+                    <p>Dhaka - 300 $</p>
+                </div>
+                <div class="w-full h-[1px] bg-black bg-opacity-40 my-3"></div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Total Cost: <span id="totalCost">00</span> $</h3>
+                    <div>
+                        <button class="px-2 py-1 bg-slate-700 text-white font-medium rounded">Bus 
+                            <span>+100</span></button>
+                        <button class="px-2 py-1 bg-slate-700 text-white font-medium rounded">Train -
+                            <span id="b">-200</span></button>
+                        <button class="px-2 py-1 bg-slate-700 text-white font-medium rounded">Flight 
+                            <span>+500</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full h-[1px] bg-black bg-opacity-40 my-3"></div>
+                <div>
+                    <h3 class="text-lg font-semibold">Grand Total: <span id="grandTotal">00</span> $</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- main section end -->
+
+    
+
 
     <script src="app.js"></script>
 </body>
