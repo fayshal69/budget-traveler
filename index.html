@@ -56,7 +56,7 @@
             <!-- card container -->
             <div class="col-span-2 grid grid-cols-2 gap-8">
                 <!-- card 1 -->
-                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                <div class="card transition duration-150 flex gap-6 p-6 shadow-lg rounded-lg">
                     <div class="w-1/2">
                         <img src="images/shajek.jpg" class="rounded-lg">
                     </div>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <!-- card 2 -->
-                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                <div class="card transition duration-150 flex gap-6 p-6 shadow-lg rounded-lg">
                     <div class="w-1/2">
                         <img src="images/Dhaka.jpg" class="rounded-lg">
                     </div>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <!-- card 3 -->
-                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                <div class="card transition duration-150 flex gap-6 p-6 shadow-lg rounded-lg">
                     <div class="w-1/2">
                         <img src="images/shundar-ban.jpg" class="rounded-lg">
                     </div>
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <!-- card 4 -->
-                <div class="flex gap-6 p-6 shadow-lg rounded-lg">
+                <div class="card transition duration-150 flex gap-6 p-6 shadow-lg rounded-lg">
                     <div class="w-1/2">
                         <img src="images/coxBazar.jpg" class="rounded-lg">
                     </div>
@@ -103,21 +103,17 @@
             <!-- cart and cost container -->
             <div class="text-center p-6 shadow-lg max-h-max">
                 <h2 class="text-3xl font-semibold">Cart</h2>
-                <div class="w-full h-[1px] bg-black bg-opacity-40 my-3"></div>
-                <div class="">
-                    <p>Dhaka - 300 $</p>
+                <div class="w-full h-[1px] bg-black bg-opacity-40 my-3" id="place-title-hr"></div>
+                <div id="place-title-container">
+                    
                 </div>
                 <div class="w-full h-[1px] bg-black bg-opacity-40 my-3"></div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Total Cost: <span id="totalCost">00</span> $</h3>
-                    <div>
-                        <button class="px-2 py-1 bg-slate-700 text-white font-medium rounded">Bus 
-                            <span>+100</span></button>
-                        <button class="px-2 py-1 bg-slate-700 text-white font-medium rounded">Train -
-                            <span id="b">-200</span></button>
-                        <button class="px-2 py-1 bg-slate-700 text-white font-medium rounded">Flight 
-                            <span>+500</span>
-                        </button>
+                    <div id="btn-transport" class="space-x-2">
+                        <button class="px-2 py-1 bg-green-700 text-white font-medium rounded">Bus +100</button>
+                        <button class="px-2 py-1 bg-green-700 text-white font-medium rounded">Train -200<button>
+                        <button class="px-2 py-1 bg-green-700 text-white font-medium rounded">Flight +500</button>
                     </div>
                 </div>
                 <div class="w-full h-[1px] bg-black bg-opacity-40 my-3"></div>
