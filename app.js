@@ -3,10 +3,11 @@ const placeTitleHr = document.getElementById('place-title-hr');
 const placeTitleContainer = document.getElementById('place-title-container');
 const totalCostTxt = document.getElementById('totalCost');
 const grandTotal = document.getElementById('grandTotal');
+const navCartItemCount = document.getElementById('navCartItemCount');
 const btnTransport = document.querySelectorAll('#btn-transport button');
 
 
-let totalCost = 0, restBudget = budgetAmount, transportCost = 0, RemainingTotalCost;
+let totalCost = 0, restBudget = budgetAmount, transportCost = 0, RemainingTotalCost, count = 0;
 
 // checking for hide the hr under cart
 if(totalCost === 0) {
@@ -40,6 +41,9 @@ function addBackgroundColor(card, btn) {
 
         const child = document.getElementById(title);
         placeTitleContainer.removeChild(child)
+
+        count -= 1;
+        navCartItemCount.innerText = count;
     }
     else {
         if(restBudget >= amount) {
@@ -57,6 +61,9 @@ function addBackgroundColor(card, btn) {
 
             totalCostTxt.innerText = totalCost;
             grandTotal.innerText = amount + Number(grandTotal.innerText);
+
+            count += 1;
+            navCartItemCount.innerText = count;
         }
         else {
             alert("You dont't have enough amount");
