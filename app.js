@@ -30,7 +30,7 @@ function addBackgroundColor(card, btn) {
 
         totalCost = totalCost - amount;
         RemainingTotalCost = Number(grandTotal.innerText) -  amount;
-        restBudget = (budgetAmount + totalCost);
+        restBudget = (budgetAmount - totalCost);
         totalCostTxt.innerText = totalCost;
         grandTotal.innerText = RemainingTotalCost;
 
@@ -45,7 +45,7 @@ function addBackgroundColor(card, btn) {
         if(restBudget >= amount) {
             totalCost += amount;
             restBudget = (budgetAmount - totalCost);
-    
+
             card.classList.add('bg-green-200');
             btn.classList.add('bg-red-500');
             btn.innerText = 'Remove';
