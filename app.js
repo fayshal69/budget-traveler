@@ -6,7 +6,7 @@ const grandTotal = document.getElementById('grandTotal');
 const btnTransport = document.querySelectorAll('#btn-transport button');
 
 
-let totalCost = 0, restBudget = budgetAmount, transportCost, RemainingTotalCost;
+let totalCost = 0, restBudget = budgetAmount, transportCost = 0, RemainingTotalCost;
 
 // checking for hide the hr under cart
 if(totalCost === 0) {
@@ -56,7 +56,7 @@ function addBackgroundColor(card, btn) {
             placeTitleContainer.appendChild(list);
 
             totalCostTxt.innerText = totalCost;
-            grandTotal.innerText = totalCost;
+            grandTotal.innerText = amount + Number(grandTotal.innerText);
         }
         else {
             alert("You dont't have enough amount");
@@ -69,12 +69,7 @@ function addBackgroundColor(card, btn) {
 
     if(totalCost === 0) {
         placeTitleHr.classList.add('hidden');
-        for(const btn of btnTransport) {
-            if(btn.classList.contains('bg-red-600')) {
-                btn.classList.remove('bg-red-600');
-                grandTotal.innerText = 0;
-            }
-        }
+        grandTotal.innerText = 0;
     }
 }
 
@@ -86,23 +81,8 @@ for(const transpot of btnTransport) {
             const transportAmountArray = e.target.innerText.split(' ');
             transpotAmout = Number(transportAmountArray[1]);
 
-            if(e.target.classList.contains('bg-red-600')) {
-                e.target.classList.remove('bg-red-600');
-                decreaseGrandTotal(transpotAmout);
-            }
-            else {
-                e.target.classList.add('bg-red-600', 'selected');
-                increaseGrandTotal(transpotAmout);
-            }
+            transportCost = totalCost + transpotAmout;
+            grandTotal.innerText = transportCost;
         }
     })
-}
-
-function decreaseGrandTotal(amount) {
-    transportCost = Number(grandTotal.innerText) - transpotAmout;
-    grandTotal.innerText = transportCost;
-}
-function increaseGrandTotal(amount) {
-    transportCost = Number(grandTotal.innerText) + transpotAmout;
-    grandTotal.innerText = transportCost;
 }
