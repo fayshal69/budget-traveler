@@ -3,9 +3,10 @@ const placeTitleHr = document.getElementById('place-title-hr');
 const placeTitleContainer = document.getElementById('place-title-container');
 const totalCostTxt = document.getElementById('totalCost');
 const grandTotal = document.getElementById('grandTotal');
+const btnTransport = document.querySelectorAll('#btn-transport button');
 
 
-let totalCost = 0, restBudget = budgetAmount, transportCost;
+let totalCost = 0, restBudget = budgetAmount, transportCost, RemainingTotalCost;
 
 // checking for hide the hr under cart
 if(totalCost === 0) {
@@ -27,10 +28,11 @@ function addBackgroundColor(card, btn) {
 
     if(btn.classList.contains('bg-red-500')) {
 
-        totalCost -= amount;
+        totalCost = totalCost - amount;
+        RemainingTotalCost = Number(grandTotal.innerText) -  amount;
         restBudget = (budgetAmount + totalCost);
         totalCostTxt.innerText = totalCost;
-        grandTotal.innerText = totalCost;
+        grandTotal.innerText = RemainingTotalCost;
 
         card.classList.remove('bg-green-200');
         btn.classList.remove('bg-red-500');
@@ -48,8 +50,6 @@ function addBackgroundColor(card, btn) {
             btn.classList.add('bg-red-500');
             btn.innerText = 'Remove';
     
-            
-    
             const list = document.createElement('p');
             list.innerText = `${title} - ${amount} $`;
             list.setAttribute('id', title);
@@ -62,38 +62,47 @@ function addBackgroundColor(card, btn) {
             alert("You dont't have enough amount");
         }
     }
+    
     if(totalCost > 0) {
         placeTitleHr.classList.remove('hidden');
     }
+
     if(totalCost === 0) {
         placeTitleHr.classList.add('hidden');
+        for(const btn of btnTransport) {
+            if(btn.classList.contains('bg-red-600')) {
+                btn.classList.remove('bg-red-600');
+                grandTotal.innerText = 0;
+            }
+        }
     }
 }
 
 
-
-
-const btnTransport = document.querySelectorAll('#btn-transport button');
-
 for(const transpot of btnTransport) {
     transpot.addEventListener('click', function(e) {
         if(totalCost > 0) {
-            const btnTransportContainer = document.getElementById('btn-transport');
 
             const transportAmountArray = e.target.innerText.split(' ');
             transpotAmout = Number(transportAmountArray[1]);
 
             if(e.target.classList.contains('bg-red-600')) {
                 e.target.classList.remove('bg-red-600');
-                transportCost = Number(grandTotal.innerText) - transpotAmout;
-                grandTotal.innerText = transportCost;
+                decreaseGrandTotal(transpotAmout);
             }
             else {
-                e.target.classList.add('bg-red-600');
-                transportCost = Number(grandTotal.innerText) + transpotAmout;
-                grandTotal.innerText = transportCost;
-                btnTransportContainer.classList.add('selected');
+                e.target.classList.add('bg-red-600', 'selected');
+                increaseGrandTotal(transpotAmout);
             }
         }
     })
+}
+
+function decreaseGrandTotal(amount) {
+    transportCost = Number(grandTotal.innerText) - transpotAmout;
+    grandTotal.innerText = transportCost;
+}
+function increaseGrandTotal(amount) {
+    transportCost = Number(grandTotal.innerText) + transpotAmout;
+    grandTotal.innerText = transportCost;
 }
